@@ -34,7 +34,7 @@ public class  TurnOn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.motor.turnOn(0.25);
+        Robot.motor.turn(0.25);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -45,7 +45,7 @@ public class  TurnOn extends Command {
     // Called once after isFinished returns true
     protected void end() {
         System.out.println("Turning moter off!");
-        Robot.motor.turnOff()
+        Robot.motor.turnOff();
     }
 
     // Called when another command which requires one or more of the same
