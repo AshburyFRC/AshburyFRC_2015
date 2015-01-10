@@ -46,5 +46,9 @@ public class Pneumatics extends Subsystem {
     public void solOff(){
     	solenoid.set(false);
     }
+    
+    public boolean getState(){
+    	return solenoid.get();
+    }
 }
 

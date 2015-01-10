@@ -32,7 +32,10 @@ public class  SolIn extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	System.out.println("Initializing SolIn");
-    	Robot.pneumatics.solOff();
+    	if (Robot.pneumatics.getState() == true)
+    		Robot.pneumatics.solOff();
+    	else
+    		System.out.println("Solenoid is already in off position");
     }
 
     // Called repeatedly when this Command is scheduled to run

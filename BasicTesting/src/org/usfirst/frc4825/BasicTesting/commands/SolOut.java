@@ -32,7 +32,10 @@ public class  SolOut extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	System.out.println("Initializing SolOut");
-    	Robot.pneumatics.solOn();
+    	if (Robot.pneumatics.getState() == false)
+    		Robot.pneumatics.solOn();
+    	else
+    		System.out.println("Solenoid is already in on position");
     }
 
     // Called repeatedly when this Command is scheduled to run
