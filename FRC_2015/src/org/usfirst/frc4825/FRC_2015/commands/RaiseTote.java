@@ -34,6 +34,7 @@ public class  RaiseTote extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.toteLift.liftTote();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -43,6 +44,7 @@ public class  RaiseTote extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.toteLift.stopTote();
     }
 
     // Called when another command which requires one or more of the same
