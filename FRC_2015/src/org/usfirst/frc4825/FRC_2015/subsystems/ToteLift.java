@@ -40,5 +40,17 @@ public class ToteLift extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    public void liftTote(){
+    	motor.set(0.5);
+    }
+    
+    public void lowerTote(){
+    	motor.set(-0.5);
+    }
+    
+    public void stopTote(){
+    	motor.set(0.0);
+    }
 }
 
