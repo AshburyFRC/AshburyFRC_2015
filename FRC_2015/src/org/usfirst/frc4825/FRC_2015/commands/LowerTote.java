@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4825.FRC_2015.Robot;
 
 /**
- *
+ *January 31st 2015 Jonathan Chow
  */
 public class  LowerTote extends Command {
 
