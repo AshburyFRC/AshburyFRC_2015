@@ -17,6 +17,7 @@ public class DriveTrain extends Subsystem {
     Encoder encoder = RobotMap.driveTrainEncoder;
     Gyro gyro = RobotMap.driveTrainGyro;
     private final double DRIFT = -0.1;
+    private final double MOTOR_SMOOTHING_OMEGA = 1.0;
 
     
     // Put methods for controlling this subsystem here. Call these from Commands.
@@ -42,6 +43,12 @@ public class DriveTrain extends Subsystem {
     public void stop(){
     	//Stop the drive train
     	robotDrive21.drive(0.0, 0.0);
+    }
+    
+    public void processJoystickInput(Joystick stick1) {
+       //arcade drive
+        robotDrive21.arcadeDrive(+MOTOR_SMOOTHING_OMEGA * stick1.getAxis(Joystick.AxisType.kY),
+                -MOTOR_SMOOTHING_OMEGA * stick1.getRawAxis(4), true);
     }
 }
 
