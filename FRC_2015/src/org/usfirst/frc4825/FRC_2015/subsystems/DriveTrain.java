@@ -1,5 +1,6 @@
 package org.usfirst.frc4825.FRC_2015.subsystems;
 
+import org.usfirst.frc4825.FRC_2015.Robot;
 import org.usfirst.frc4825.FRC_2015.RobotMap;
 import org.usfirst.frc4825.FRC_2015.commands.*;
 
@@ -35,8 +36,7 @@ public class DriveTrain extends Subsystem {
     public void driveStraitSensor(double speed){
     	//Drive in a strait line at a given speed; negative is reverse; uses gyro
     	double angle = RobotMap.driveTrainGyro.getAngle(); // get current heading
-        System.out.println(angle);
-        robotDrive21.drive(speed, DRIFT + angle * 0.03); // drive towards heading 0
+        robotDrive21.drive(speed, -angle * 0.03); // drive towards heading 0
         Timer.delay(0.004);
     }
     
@@ -50,8 +50,12 @@ public class DriveTrain extends Subsystem {
     	int signX = (stick1.getRawAxis(4) > 1) ? 1 : -1;
     	double speed = Math.pow(stick1.getAxis(Joystick.AxisType.kY), 3);
     	double rotation = (Math.pow(stick1.getRawAxis(4), 5)*signX);
-        robotDrive21.arcadeDrive(speed,rotation, false);
-        System.out.println(rotation);
+    	if(rotation < 0.5){//ensures the robot goes straight within the specified dead zone using a gyro
+    		Robot.driveTrain.driveStraitSensor(speed);
+    	}
+    	else{
+    		robotDrive21.arcadeDrive(speed,rotation, false);
+    	}
     }
 }
 
