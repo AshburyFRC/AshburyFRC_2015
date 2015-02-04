@@ -46,9 +46,12 @@ public class DriveTrain extends Subsystem {
     }
     
     public void processJoystickInput(Joystick stick1) {
-       //arcade drive
-        robotDrive21.arcadeDrive(+MOTOR_SMOOTHING_OMEGA * stick1.getAxis(Joystick.AxisType.kY),
-                -MOTOR_SMOOTHING_OMEGA * stick1.getRawAxis(4), true);
+        //arcade drive
+    	int signX = (stick1.getRawAxis(4) > 1) ? 1 : -1;
+    	double speed = Math.pow(stick1.getAxis(Joystick.AxisType.kY), 3);
+    	double rotation = (Math.pow(stick1.getRawAxis(4), 5)*signX);
+        robotDrive21.arcadeDrive(speed,rotation, false);
+        System.out.println(rotation);
     }
 }
 

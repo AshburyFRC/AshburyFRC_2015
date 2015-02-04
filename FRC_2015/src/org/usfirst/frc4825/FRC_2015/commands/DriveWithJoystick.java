@@ -14,9 +14,6 @@ import org.usfirst.frc4825.FRC_2015.RobotMap;
 public class  DriveWithJoystick extends Command {
 
     public DriveWithJoystick() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-
         requires(Robot.driveTrain);
     }
 
@@ -32,11 +29,13 @@ public class  DriveWithJoystick extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.driveTrain.stop();
+    	System.out.println("End DriveWithJoysticks");
     }
 
     // Called when another command which requires one or more of the same
