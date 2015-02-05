@@ -47,8 +47,8 @@ public class DriveTrain extends Subsystem {
     	int signX = (stick1.getRawAxis(4) > 1) ? 1 : -1;
     	double speed = Math.pow(stick1.getAxis(Joystick.AxisType.kY), 3);
     	double rotation = (Math.pow(stick1.getRawAxis(4), 5)*signX);
-    	if(rotation < 0.5 && rotation > .5){//ensures the robot goes straight within the specified dead zone using a gyro
-    		Robot.driveTrain.driveStraitNoSensor(speed);
+    	if(rotation < 0.5 && rotation > -0.5){//ensures the robot goes straight within the specified dead zone using a gyro
+    		Robot.driveTrain.driveStraitSensor(speed);
     	}
     	else{
     		robotDrive21.arcadeDrive(speed,rotation, false);

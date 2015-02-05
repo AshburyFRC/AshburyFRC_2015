@@ -13,7 +13,7 @@ package org.usfirst.frc4825.FRC_2015.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *Ultra Pro Code By Isidor Ehrlich
  */
 public class AutonomousCommand extends CommandGroup {
     
@@ -34,5 +34,9 @@ public class AutonomousCommand extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	
+    	
+    	//Commands To Run
+    	addSequential(new DriveToSwitch());
     }
 }
