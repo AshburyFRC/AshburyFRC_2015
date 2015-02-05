@@ -17,9 +17,6 @@ public class DriveTrain extends Subsystem {
     DigitalInput driveSwitch = RobotMap.driveTrainDriveSwitch;
     Encoder encoder = RobotMap.driveTrainEncoder;
     Gyro gyro = RobotMap.driveTrainGyro;
-    private final double DRIFT = -0.1;
-    private final double MOTOR_SMOOTHING_OMEGA = 1.0;
-
     
     // Put methods for controlling this subsystem here. Call these from Commands.
 
