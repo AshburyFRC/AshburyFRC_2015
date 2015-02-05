@@ -17,6 +17,7 @@ public class DriveTrain extends Subsystem {
     DigitalInput driveSwitch = RobotMap.driveTrainDriveSwitch;
     Encoder encoder = RobotMap.driveTrainEncoder;
     Gyro gyro = RobotMap.driveTrainGyro;
+    double angle = gyro.getAngle();
     
     // Put methods for controlling this subsystem here. Call these from Commands.
 
@@ -61,7 +62,7 @@ public class DriveTrain extends Subsystem {
     }
     
     public boolean turn90DegreesRight(){
-    	double angle = gyro.getAngle();
+    	//Turns the robot to the right 90 degrees
     	robotDrive21.drive(0.0, 0.8);
     	if(gyro.getAngle() >= angle+90){
     		return true;
@@ -69,6 +70,10 @@ public class DriveTrain extends Subsystem {
     	else{
     		return false;
     	}
+    }
+    
+    public void resetTurnAngle(){
+    	angle = 0.0;
     }
 }
 
