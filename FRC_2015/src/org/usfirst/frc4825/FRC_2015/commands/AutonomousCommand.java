@@ -38,5 +38,6 @@ public class AutonomousCommand extends CommandGroup {
     	
     	//Commands To Run
     	addSequential(new DriveToSwitch());
+    	addSequential(new Turn());
     }
 }

@@ -59,5 +59,16 @@ public class DriveTrain extends Subsystem {
     	//Returns if limit switch is pressed
     	return Robot.driveTrain.driveSwitch.get();
     }
+    
+    public boolean turn90DegreesRight(){
+    	double angle = gyro.getAngle();
+    	robotDrive21.drive(0.0, 0.8);
+    	if(gyro.getAngle() >= angle+90){
+    		return true;
+    	}
+    	else{
+    		return false;
+    	}
+    }
 }
 
