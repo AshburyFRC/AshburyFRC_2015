@@ -66,5 +66,9 @@ public class ToteLift extends Subsystem {
     public boolean getBottomSwitch(){
     	return bottomSwitch.get();
     }
+    
+    public boolean getMiddleSwitch(){
+    	return middleSwitch.get();
+    }
 }
 
