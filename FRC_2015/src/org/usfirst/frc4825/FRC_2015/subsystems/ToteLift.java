@@ -42,15 +42,29 @@ public class ToteLift extends Subsystem {
     }
     
     public void liftTote(){
-    	motor.set(0.5);
+    	if (upperSwitch.get() == true)
+    		motor.set(0.5);
+    	else
+    		motor.set(0.0);
     }
     
     public void lowerTote(){
-    	motor.set(-0.5);
+    	if (bottomSwitch.get() == true)
+    		motor.set(-0.5);
+    	else
+    		motor.set(0.0);
     }
     
     public void stopTote(){
     	motor.set(0.0);
+    }
+    
+    public boolean getUpperSwitch(){
+    	return upperSwitch.get();
+    }
+    
+    public boolean getBottomSwitch(){
+    	return bottomSwitch.get();
     }
 }
 
