@@ -13,7 +13,9 @@ package org.usfirst.frc4825.FRC_2015.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *Ultra Pro Code By Isidor Ehrlich
+ * 											\/\/\/\/\\/\/\
+ *Ultra Pro Code By Isidor Ehrlich 		>>> $WAG $WAG $WAG <<<
+ *											\/\/\/\/\/\/\/
  */
 public class AutonomousCommand extends CommandGroup {
     
@@ -37,7 +39,13 @@ public class AutonomousCommand extends CommandGroup {
     	
     	
     	//Commands To Run
+    	addSequential(new LowerToteToFirstLvl());
+    	addSequential(new RaiseToteToLastLvl());
     	addSequential(new DriveToSwitch());
+		addSequential(new LowerToteToFirstLvl());
+		addSequential(new RaiseToteToMiddleLvl());
     	addSequential(new Turn());
+    	addSequential(new DriveWithEncoder());
+    	addSequential(new LowerToteToFirstLvl());
     }
 }
