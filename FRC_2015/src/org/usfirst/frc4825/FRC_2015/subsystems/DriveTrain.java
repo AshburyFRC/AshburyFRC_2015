@@ -73,7 +73,8 @@ public class DriveTrain extends Subsystem {
     }
     
     public void resetTurnAngle(){
-    	angle = 0.0;
+    	//Resets the saved starting angle
+    	angle = gyro.getAngle();
     }
 }
 

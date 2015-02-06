@@ -25,6 +25,7 @@ public class  Turn extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.driveTrain.resetTurnAngle();
     	Robot.driveTrain.turn90DegreesRight();
     }
 
