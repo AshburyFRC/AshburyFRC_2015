@@ -1,6 +1,8 @@
 package org.usfirst.frc4825.FRC_2015.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc4825.FRC_2015.Robot;
 
 /**
@@ -16,7 +18,7 @@ public class DriveToAutoZone extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		setTimeout(500.0);
+		setTimeout(SmartDashboard.getNumber("Time of driving forward"));
 	}
 
 	// Called repeatedly when this Command is scheduled to run
