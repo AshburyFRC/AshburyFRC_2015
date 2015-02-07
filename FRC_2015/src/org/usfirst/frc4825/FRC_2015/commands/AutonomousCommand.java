@@ -13,7 +13,7 @@ package org.usfirst.frc4825.FRC_2015.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *Ultra Pro Code By Isidor Ehrlich 	&&& >>> $WAG $LAVA <<<
+ *Ultra Pro Code By Isidor Ehrlich &&& >>> $WAG $LAVA <<<
  */
 public class AutonomousCommand extends CommandGroup {
 
