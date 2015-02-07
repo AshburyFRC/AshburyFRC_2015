@@ -105,7 +105,7 @@ public class DriveTrain extends Subsystem {
 	Scores scores = new Scores();
 	
 	//A structure to hold measurements of a particle
-	public class ParticleReport implements Comparator<ParticleReport>, Comparable<ParticleReport>{
+	private class ParticleReport implements Comparator<ParticleReport>, Comparable<ParticleReport>{
 		double PercentAreaToImageArea;
 		double Area;
 		double ConvexHullArea;
@@ -126,7 +126,7 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	//Structure to represent the scores for the various tests used for target identification
-	public class Scores {
+	private class Scores {
 		double Trapezoid;
 		double LongAspect;
 		double ShortAspect;
@@ -188,7 +188,7 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	//Comparator function for sorting particles. Returns true if particle 1 is larger
-	static boolean CompareParticleSizes(ParticleReport particle1, ParticleReport particle2)
+	private static boolean CompareParticleSizes(ParticleReport particle1, ParticleReport particle2)
 	{
 		//we want descending sort order
 		return particle1.PercentAreaToImageArea > particle2.PercentAreaToImageArea;
@@ -198,7 +198,7 @@ public class DriveTrain extends Subsystem {
 	 * Converts a ratio with ideal value of 1 to a score. The resulting function is piecewise
 	 * linear going from (0,0) to (1,100) to (2,0) and is 0 for all inputs outside the range 0-2
 	 */
-	double ratioToScore(double ratio)
+	private double ratioToScore(double ratio)
 	{
 		return (Math.max(0, Math.min(100*(1-Math.abs(1-ratio)), 100)));
 	}
@@ -206,7 +206,7 @@ public class DriveTrain extends Subsystem {
 	/**
 	 * Method to score convex hull area. This scores how "complete" the particle is. Particles with large holes will score worse than a filled in shape
 	 */
-	double ConvexHullAreaScore(ParticleReport report)
+	private double ConvexHullAreaScore(ParticleReport report)
 	{
 		return ratioToScore((report.Area/report.ConvexHullArea)*1.18);
 	}
@@ -215,7 +215,7 @@ public class DriveTrain extends Subsystem {
 	 * Method to score if the particle appears to be a trapezoid. Compares the convex hull (filled in) area to the area of the bounding box.
 	 * The expectation is that the convex hull area is about 95.4% of the bounding box area for an ideal tote.
 	 */
-	double TrapezoidScore(ParticleReport report)
+	private double TrapezoidScore(ParticleReport report)
 	{
 		return ratioToScore(report.ConvexHullArea/((report.BoundingRectRight-report.BoundingRectLeft)*(report.BoundingRectBottom-report.BoundingRectTop)*.954));
 	}
@@ -223,7 +223,7 @@ public class DriveTrain extends Subsystem {
 	/**
 	 * Method to score if the aspect ratio of the particle appears to match the long side of a tote.
 	 */
-	double LongSideScore(ParticleReport report)
+	private double LongSideScore(ParticleReport report)
 	{
 		return ratioToScore(((report.BoundingRectRight-report.BoundingRectLeft)/(report.BoundingRectBottom-report.BoundingRectTop))/LONG_RATIO);
 	}
@@ -231,7 +231,7 @@ public class DriveTrain extends Subsystem {
 	/**
 	 * Method to score if the aspect ratio of the particle appears to match the short side of a tote.
 	 */
-	double ShortSideScore(ParticleReport report){
+	private double ShortSideScore(ParticleReport report){
 		return ratioToScore(((report.BoundingRectRight-report.BoundingRectLeft)/(report.BoundingRectBottom-report.BoundingRectTop))/SHORT_RATIO);
 	}
 
@@ -244,7 +244,7 @@ public class DriveTrain extends Subsystem {
 	 * @param isLong Boolean indicating if the target is believed to be the long side of a tote
 	 * @return The estimated distance to the target in feet.
 	 */
-	double computeDistance (Image image, ParticleReport report, boolean isLong) {
+	private double computeDistance (Image image, ParticleReport report, boolean isLong) {
 		double normalizedWidth, targetWidth;
 		NIVision.GetImageSizeResult size;
 
