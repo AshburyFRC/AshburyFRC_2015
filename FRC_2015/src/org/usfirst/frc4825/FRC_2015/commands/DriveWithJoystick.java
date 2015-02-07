@@ -27,7 +27,7 @@ public class DriveWithJoystick extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return false;//This should run until the code has it's execution force terminated when the robot gets disabled at the end of the match
 	}
 
 	// Called once after isFinished returns true
@@ -37,8 +37,7 @@ public class DriveWithJoystick extends Command {
 		System.out.println("End DriveWithJoysticks");
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
+	// Called when another command which requires one or more of the same subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
 		end();
