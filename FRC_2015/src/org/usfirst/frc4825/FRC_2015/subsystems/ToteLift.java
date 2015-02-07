@@ -39,7 +39,7 @@ public class ToteLift extends Subsystem {
 		// setDefaultCommand(new MySpecialCommand());
 	}
 
-	public void liftTote() { //Moves the lift up
+	public void raiseTote() { //Moves the lift up
 		if (upperSwitch.get() == true) //Checks if the arms are not at the top
 			motor.set(0.5); //Moves lift up
 		else //Arms are at the top
