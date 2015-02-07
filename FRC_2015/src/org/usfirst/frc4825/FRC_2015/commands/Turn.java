@@ -26,19 +26,17 @@ public class Turn extends Command {
 	@Override
 	protected void initialize() {
 		Robot.driveTrain.resetTurnAngle();
-		Robot.driveTrain.turn90DegreesRight();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.driveTrain.turn90DegreesRight();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return Robot.driveTrain.turn90DegreesRight();
+		return Robot.driveTrain.turn90DegreesLeft();
 	}
 
 	// Called once after isFinished returns true

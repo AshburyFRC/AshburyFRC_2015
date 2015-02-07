@@ -68,10 +68,10 @@ public class DriveTrain extends Subsystem {
 		return Robot.driveTrain.driveSwitch.get();
 	}
 
-	public boolean turn90DegreesRight() {
+	public boolean turn90DegreesLeft() {
 		// Turns the robot to the right 90 degrees
-		robotDrive21.tankDrive(0.8, -0.8);
-		if (gyro.getAngle() >= angle + 90) {
+		robotDrive21.tankDrive(-0.8, 0.8);
+		if (gyro.getAngle() <= angle - 90) {
 			return true;
 		} else {
 			return false;
