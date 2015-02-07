@@ -39,33 +39,33 @@ public class ToteLift extends Subsystem {
 		// setDefaultCommand(new MySpecialCommand());
 	}
 
-	public void liftTote() {
-		if (upperSwitch.get() == true)
-			motor.set(0.5);
-		else
-			motor.set(0.0);
+	public void liftTote() { //Moves the lift up
+		if (upperSwitch.get() == true) //Checks if the arms are not at the top
+			motor.set(0.5); //Moves lift up
+		else //Arms are at the top
+			motor.set(0.0); //Stop arm movement
 	}
 
-	public void lowerTote() {
-		if (bottomSwitch.get() == true)
-			motor.set(-0.5);
-		else
-			motor.set(0.0);
+	public void lowerTote() { //Moves the lift down
+		if (bottomSwitch.get() == true) //Moves the lift down
+			motor.set(-0.5); //Moves lift down
+		else //Arms are at the bottom
+			motor.set(0.0); //Stop arm movement
 	}
 
-	public void stopTote() {
+	public void stopTote() { //Stop motor movement
 		motor.set(0.0);
 	}
 
-	public boolean getUpperSwitch() {
+	public boolean getUpperSwitch() { //Gets the switch data to determine the position of the arms
 		return upperSwitch.get();
 	}
 
-	public boolean getBottomSwitch() {
+	public boolean getBottomSwitch() { //Gets the switch data to determine the position of the arms
 		return bottomSwitch.get();
 	}
 
-	public boolean getMiddleSwitch() {
+	public boolean getMiddleSwitch() { //Gets the switch data to determine the position of the arms
 		return middleSwitch.get();
 	}
 }
