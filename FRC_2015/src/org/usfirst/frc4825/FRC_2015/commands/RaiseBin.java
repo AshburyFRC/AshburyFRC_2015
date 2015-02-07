@@ -11,6 +11,7 @@
 package org.usfirst.frc4825.FRC_2015.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc4825.FRC_2015.Robot;
 
 /**
@@ -30,11 +31,13 @@ public class RaiseBin extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
+		System.out.println("Initialize RaiseBin"); //Print for debug
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
+		Robot.binLift.raiseBin(); //Call lowerBin() in binLift subsystem to raise the bin
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -46,11 +49,14 @@ public class RaiseBin extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
+		System.out.println("End RaiseBin"); //Print for debug
+		Robot.binLift.stopBin(); //Call stopBin() in binLift subsystem to stop the bin movement
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
+		end(); //End the command
 	}
 }
