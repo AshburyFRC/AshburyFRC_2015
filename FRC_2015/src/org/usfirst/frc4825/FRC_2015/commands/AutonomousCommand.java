@@ -42,7 +42,7 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new LowerToteToFirstLvl());
 		addSequential(new RaiseToteToMiddleLvl());
 		addSequential(new Turn());
-		addSequential(new DriveWithEncoder());
+		addSequential(new DriveToAutoZone());
 		addSequential(new LowerToteToFirstLvl());
 	}
 }
