@@ -26,6 +26,7 @@ public class DriveTrain extends Subsystem {
 	Encoder encoder = RobotMap.driveTrainEncoder;
 	Gyro gyro = RobotMap.driveTrainGyro;
 	double angle = gyro.getAngle();
+	int session = 0;
 	
 	@Override
 	public void initDefaultCommand() {
@@ -134,9 +135,16 @@ public class DriveTrain extends Subsystem {
 	
 	//Processing the Image Somehow
 	public void processImage(){
+		//The camera name (ex "cam0") can be found through the roborio web interface
+	    session = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
+	    NIVision.IMAQdxConfigureGrab(session);
+	    NIVision.IMAQdxStartAcquisition(session);
+	    
 		//Setting images to use
 		Image image = NIVision.imaqCreateImage(ImageType.IMAGE_RGB, 0);
-		Image binaryFrame = NIVision.imaqCreateImage(ImageType.IMAGE_U8, 0);;
+		Image binaryFrame = NIVision.imaqCreateImage(ImageType.IMAGE_U8, 0);
+		NIVision.IMAQdxGrab(session, image, 1);
+		CameraServer.getInstance().setImage(image);
 		
 		//Threshold the image looking for yellow (tote color)
 		NIVision.imaqColorThreshold(binaryFrame, image, 255, NIVision.ColorMode.HSV, TOTE_HUE_RANGE, TOTE_SAT_RANGE, TOTE_VAL_RANGE);
