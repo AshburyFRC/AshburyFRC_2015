@@ -30,6 +30,7 @@ public class LowerTote extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
+		System.out.println("Initialize LowerTote");
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -47,6 +48,7 @@ public class LowerTote extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
+		System.out.println("End LowerTote");
 		Robot.toteLift.stopTote();
 	}
 
@@ -54,5 +56,6 @@ public class LowerTote extends Command {
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
+		end();
 	}
 }
