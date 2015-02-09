@@ -188,7 +188,7 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	//Comparator function for sorting particles. Returns true if particle 1 is larger
-	private static boolean CompareParticleSizes(ParticleReport particle1, ParticleReport particle2)
+	static boolean CompareParticleSizes(ParticleReport particle1, ParticleReport particle2)
 	{
 		//we want descending sort order
 		return particle1.PercentAreaToImageArea > particle2.PercentAreaToImageArea;
