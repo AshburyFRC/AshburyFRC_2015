@@ -36,3 +36,7 @@ local.properties
 
 # TeXlipse plugin
 .texlipse
+
+**/*.jar
+
+*.jar
