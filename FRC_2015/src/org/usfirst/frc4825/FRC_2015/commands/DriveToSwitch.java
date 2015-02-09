@@ -11,6 +11,8 @@
 package org.usfirst.frc4825.FRC_2015.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc4825.FRC_2015.Robot;
 
 /**
@@ -25,13 +27,12 @@ public class DriveToSwitch extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		Robot.driveTrain.driveStraitSensor(0.8);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.driveTrain.driveStraitSensor(0.8);
+		Robot.driveTrain.driveStraitSensor(SmartDashboard.getNumber("Autonomus Speed"));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

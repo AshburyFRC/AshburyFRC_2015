@@ -35,9 +35,9 @@ public class DriveWithTimer extends Command {
 	@Override
 	protected void execute() {
 		if (!isForward)
-			Robot.driveTrain.driveStraitSensor(-0.8);
+			Robot.driveTrain.driveStraitSensor(-SmartDashboard.getNumber("Autonomus Speed"));
 		else
-			Robot.driveTrain.driveStraitSensor(0.8);
+			Robot.driveTrain.driveStraitSensor(SmartDashboard.getNumber("Autonomus Speed"));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

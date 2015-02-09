@@ -94,6 +94,7 @@ public class OI {
 		SmartDashboard.putNumber("Time of driving 2", 3.0);
 		SmartDashboard.putNumber("Time of driving 3", -4.0);
 		SmartDashboard.putNumber("Time of driving 4", -1.0);
+		SmartDashboard.putNumber("Autonomus Speed", 0.8);
 
 	}
 
