@@ -40,3 +40,5 @@ local.properties
 **/*.jar
 
 *.jar
+
+FRC_2015/dist/FRCUserProgram.jar
