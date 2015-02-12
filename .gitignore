@@ -7,6 +7,7 @@ tmp/
 *.tmp
 *.bak
 *.swp
+*.jar
 *~.nib
 local.properties
 .settings/
@@ -37,6 +38,4 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
-**/*.jar
-
-*.jar
+FRC_2015/dist/FRCUserProgram.jar
