@@ -13,6 +13,7 @@ import com.ni.vision.NIVision.ImageType;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.image.HSLImage;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -82,5 +83,14 @@ public class DriveTrain extends Subsystem {
 		// Resets the saved starting angle and gyro
 		gyro.reset();
 		angle = gyro.getAngle();
+	}
+	
+	public void getToBin() {
+		//Will loop the image processing code until it the bin detected limit switch is pressed
+		while(!atSwitch()){
+			//I think that this should grab the current image from the webcam on the front of the robot
+			//WTF is happening here!?!?! all of the USBCamera methods return void!?!?!?!
+			//HSLImage image  = RobotMap.cameraFront.getImage();
+		}
 	}
 }
