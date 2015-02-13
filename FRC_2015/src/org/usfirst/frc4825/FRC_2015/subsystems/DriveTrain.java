@@ -23,7 +23,7 @@ public class DriveTrain extends Subsystem {
 	SpeedController rightSpeedController = RobotMap.driveTrainRightSpeedController;
 	RobotDrive robotDrive21 = RobotMap.driveTrainRobotDrive21;
 	DigitalInput driveSwitch = RobotMap.driveTrainDriveSwitch;
-	Encoder encoder = RobotMap.driveTrainEncoder;
+	//Encoder encoder = RobotMap.driveTrainEncoder;
 	Gyro gyro = RobotMap.driveTrainGyro;
 	double angle = gyro.getAngle();
 	int session = 0;
