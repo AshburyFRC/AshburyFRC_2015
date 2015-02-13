@@ -41,8 +41,7 @@ public class DriveTrain extends Subsystem {
 
 	public void driveStraitSensor(double speed) {
 		// Drive in a strait line at a given speed; negative is reverse; uses gyro
-		double angle = RobotMap.driveTrainGyro.getAngle(); // get current
-															// heading
+		double angle = RobotMap.driveTrainGyro.getAngle(); // get current heading
 		robotDrive21.drive(speed, -angle * 0.03); // drive towards heading 0
 		Timer.delay(0.004);
 	}

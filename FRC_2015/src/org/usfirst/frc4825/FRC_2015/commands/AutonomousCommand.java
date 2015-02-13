@@ -40,13 +40,13 @@ public class AutonomousCommand extends CommandGroup {
 //		addSequential(new LowerToteToFirstLvl());
 //		addSequential(new RaiseToteToLastLvl());
 		addSequential(new DriveWithTimer(5.0));
-//		addSequential(new Turn());
-//		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 2")));
-//		addSequential(new Turn());
+		addSequential(new Turn());
+		addSequential(new DriveWithTimer(1.0));
+		addSequential(new Turn());
 //		addSequential(new DriveToSwitch());
 //		addSequential(new LowerToteToFirstLvl());
 //		addSequential(new RaiseToteToMiddleLvl());
-//		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 3")));
+		addSequential(new DriveWithTimer(-2.0));
 //		addSequential(new LowerToteToFirstLvl());
 //		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 4")));
 	}
