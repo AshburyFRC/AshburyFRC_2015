@@ -37,17 +37,17 @@ public class AutonomousCommand extends CommandGroup {
 		// arm.
 
 		// Commands To Run
-		addSequential(new LowerToteToFirstLvl());
-		addSequential(new RaiseToteToLastLvl());
-		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 1")));
-		addSequential(new Turn());
-		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 2")));
-		addSequential(new Turn());
-		addSequential(new DriveToSwitch());
-		addSequential(new LowerToteToFirstLvl());
-		addSequential(new RaiseToteToMiddleLvl());
-		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 3")));
-		addSequential(new LowerToteToFirstLvl());
-		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 4")));
+//		addSequential(new LowerToteToFirstLvl());
+//		addSequential(new RaiseToteToLastLvl());
+		addSequential(new DriveWithTimer(5.0));
+//		addSequential(new Turn());
+//		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 2")));
+//		addSequential(new Turn());
+//		addSequential(new DriveToSwitch());
+//		addSequential(new LowerToteToFirstLvl());
+//		addSequential(new RaiseToteToMiddleLvl());
+//		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 3")));
+//		addSequential(new LowerToteToFirstLvl());
+//		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 4")));
 	}
 }
