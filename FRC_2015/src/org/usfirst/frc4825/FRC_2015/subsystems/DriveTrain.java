@@ -13,6 +13,7 @@ import com.ni.vision.NIVision.ImageType;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.image.HSLImage;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -57,7 +58,7 @@ public class DriveTrain extends Subsystem {
 		double speed = Math.pow(stick1.getAxis(Joystick.AxisType.kY), 3);
 		double rotation = (Math.pow(stick1.getRawAxis(4), 5) * signX);
 		if (rotation < 0.5 && rotation > -0.5) {// ensures the robot goes straight within the specified dead zone using a gyro
-			Robot.driveTrain.driveStraitSensor(speed);
+			Robot.driveTrain.driveStraitNoSensor(speed);
 		} else {
 			robotDrive21.arcadeDrive(speed, rotation);
 		}
@@ -84,7 +85,12 @@ public class DriveTrain extends Subsystem {
 		angle = gyro.getAngle();
 	}
 	
-	
-	
-	//\\ Image Processing //\\
+	public void getToBin() {
+		//Will loop the image processing code until it the bin detected limit switch is pressed
+		while(!atSwitch()){
+			//I think that this should grab the current image from the webcam on the front of the robot
+			//WTF is happening here!?!?! all of the USBCamera methods return void!?!?!?!
+			//HSLImage image  = RobotMap.cameraFront.getImage();
+		}
+	}
 }
