@@ -6,3 +6,10 @@ Code for the 2015 Ashbury FRC robotics team
 Hello Everyone,
 
 If you are reading this I have successfully created a README.md file.
+
+==============
+
+
+by J Chow, I$idor and Slava P.
+
+P.S. and, of course, Keith
