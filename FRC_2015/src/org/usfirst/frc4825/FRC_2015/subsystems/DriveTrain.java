@@ -91,6 +91,8 @@ public class DriveTrain extends Subsystem {
 			//I think that this should grab the current image from the webcam on the front of the robot
 			//WTF is happening here!?!?! all of the USBCamera methods return void!?!?!?!
 			//HSLImage image  = RobotMap.cameraFront.getImage();
+			//OMG!?WTF?!?  There is no constructor for this object
+			//NIVision.Image image = new NIVision.Image();
 		}
 	}
 }
