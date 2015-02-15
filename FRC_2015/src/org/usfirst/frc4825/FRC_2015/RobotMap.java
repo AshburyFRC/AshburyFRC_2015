@@ -68,6 +68,7 @@ public class RobotMap {
 		driveTrainGyro = new Gyro(0);
 		LiveWindow.addSensor("Drive Train", "Gyro", driveTrainGyro);
 		driveTrainGyro.setSensitivity(0.007);
+		
 		toteLiftMotor = new Victor(2);
 		LiveWindow.addActuator("Tote Lift", "Motor", (Victor) toteLiftMotor);
 
@@ -97,8 +98,12 @@ public class RobotMap {
 		binSolenoid = new Solenoid(0, 1);
 		LiveWindow.addActuator("Bin Lift", "Solenoid", binSolenoid);
 		
+		/*
+		//USB Camera
 		frontCamera = new USBCamera("Front Camera");
+		frontCamera.setFPS(15);
 		cameraServer.setQuality(50);
 		cameraServer.startAutomaticCapture(frontCamera);
+		*/
 	}
 }
