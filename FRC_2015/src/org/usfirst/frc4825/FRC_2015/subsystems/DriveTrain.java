@@ -84,7 +84,6 @@ public class DriveTrain extends Subsystem {
 	
 	//\\Image Processing//\\
 	
-	
 	//Constants
 	NIVision.Range TOTE_HUE_RANGE = new NIVision.Range(24, 49);	//Default hue range for yellow tote
 	NIVision.Range TOTE_SAT_RANGE = new NIVision.Range(67, 255);	//Default saturation range for yellow tote
