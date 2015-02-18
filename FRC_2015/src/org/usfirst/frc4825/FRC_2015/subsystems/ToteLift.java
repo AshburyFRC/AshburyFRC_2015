@@ -11,9 +11,10 @@
 package org.usfirst.frc4825.FRC_2015.subsystems;
 
 import org.usfirst.frc4825.FRC_2015.RobotMap;
-import edu.wpi.first.wpilibj.*;
 
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * January 31st 2015 Jonathan Chow
@@ -96,10 +97,12 @@ public class ToteLift extends Subsystem {
 		if (stopSpeed == 0.0){
 			stopSpeed = 0.15;
 			motor.set(stopSpeed);
+			SmartDashboard.putString("Tote Stabilizer:", "Enabled");
 		}
 		else if (stopSpeed == 0.15){
 			stopSpeed = 0.0;
 			motor.set(stopSpeed);
+			SmartDashboard.putString("Tote Stabilizer:", "Disabled");
 		}
 	}
 }
