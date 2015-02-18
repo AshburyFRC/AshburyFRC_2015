@@ -28,6 +28,7 @@ public class DriveWithTimer extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
+		System.out.println("initialize timeOfDriving()");
 		setTimeout(time);
 	}
 
@@ -35,9 +36,9 @@ public class DriveWithTimer extends Command {
 	@Override
 	protected void execute() {
 		if (!isForward)
-			Robot.driveTrain.driveStraitSensor(-SmartDashboard.getNumber("Autonomus Speed"));
+			Robot.driveTrain.driveStraitNoSensor(-SmartDashboard.getNumber("Autonomus Speed"));
 		else
-			Robot.driveTrain.driveStraitSensor(SmartDashboard.getNumber("Autonomus Speed"));
+			Robot.driveTrain.driveStraitNoSensor(SmartDashboard.getNumber("Autonomus Speed"));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -50,6 +51,7 @@ public class DriveWithTimer extends Command {
 	@Override
 	protected void end() {
 		Robot.driveTrain.stop();
+		System.out.println("end DriveWithTimer()");
 	}
 
 	// Called when another command which requires one or more of the same subsystems is scheduled to run

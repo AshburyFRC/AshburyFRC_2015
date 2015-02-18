@@ -27,12 +27,13 @@ public class DriveToSwitch extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
+		System.out.println("initialize driveToSwitch()");
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.driveTrain.driveStraitSensor(SmartDashboard.getNumber("Autonomus Speed"));
+		Robot.driveTrain.driveStraitNoSensor(SmartDashboard.getNumber("Autonomus Speed"));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -44,6 +45,7 @@ public class DriveToSwitch extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
+		System.out.println("end driveToSwitch()");
 		Robot.driveTrain.stop();
 	}
 
@@ -51,6 +53,6 @@ public class DriveToSwitch extends Command {
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
-		Robot.driveTrain.stop();
+		end();
 	}
 }

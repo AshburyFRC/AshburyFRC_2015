@@ -64,7 +64,7 @@ public class DriveTrain extends Subsystem {
 		int signX = (stick1.getRawAxis(4) > 1) ? 1 : -1;
 		double speed = Math.pow(stick1.getAxis(Joystick.AxisType.kY), 3);
 		double rotation = (Math.pow(stick1.getRawAxis(4), 5) * signX);
-		robotDrive21.arcadeDrive(speed, rotation);
+		robotDrive21.arcadeDrive(reversed*speed, rotation);
 	}
 
 	public boolean atSwitch() {
@@ -112,6 +112,18 @@ public class DriveTrain extends Subsystem {
 		else
 			if (reversed == -1)
 				reversed = 1;
+	}
+	
+	public void turnWithSpeed(double speed){
+		robotDrive21.arcadeDrive(0.0, speed);
+	}
+	
+	public double getGyroAngle(){
+		return gyro.getAngle();
+	}
+	
+	public void resetGyro(){
+		gyro.reset();
 	}
 	
 	

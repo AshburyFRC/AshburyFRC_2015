@@ -19,6 +19,7 @@ public class RaiseToteToMiddleLvl extends Command {
 	@Override
 	protected void initialize() {
 		System.out.println("Initialize RaiseToteToMiddleLvl");
+		setTimeout(2.0);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -30,7 +31,7 @@ public class RaiseToteToMiddleLvl extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return !Robot.toteLift.getMiddleSwitch();
+		return isTimedOut();
 	}
 
 	// Called once after isFinished returns true
