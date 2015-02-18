@@ -29,6 +29,13 @@ public class DriveTrain extends Subsystem {
 	double angle = gyro.getAngle();
 	int session = 0;
 	
+	private int reversed = 1;
+	
+	private double memY = 0;
+	private double memX = 0;
+	private double speed;
+	private double rotation;
+	
 	@Override
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
@@ -79,6 +86,32 @@ public class DriveTrain extends Subsystem {
 		// Resets the saved starting angle and gyro
 		gyro.reset();
 		angle = gyro.getAngle();
+	}
+	
+	public void processJoystickInputExperimental(Joystick stick){
+		speed = (1/8)*memX + (7/8)*stick.getAxis(Joystick.AxisType.kY);
+		memX = speed;
+		
+		rotation = (1/8)*memY + (7/8)*stick.getRawAxis(4);
+		memY = rotation;
+		
+		robotDrive21.arcadeDrive(reversed*speed, rotation);
+	}
+	
+	public double getZAxis(Joystick stick){
+		return stick.getAxis(Joystick.AxisType.kZ);
+	}
+	
+	public boolean getSwitch(){
+		return driveSwitch.get();
+	}
+	
+	public void toggleReversed(){
+		if (reversed == 1)
+			reversed = -1;
+		else
+			if (reversed == -1)
+				reversed = 1;
 	}
 	
 	

@@ -91,4 +91,15 @@ public class ToteLift extends Subsystem {
 		if (solenoid.get() == true)
 			solenoid.set(false);
 	}
+	
+	public void toggleStopSpeed(){
+		if (stopSpeed == 0.0){
+			stopSpeed = 0.15;
+			motor.set(stopSpeed);
+		}
+		else if (stopSpeed == 0.15){
+			stopSpeed = 0.0;
+			motor.set(stopSpeed);
+		}
+	}
 }
