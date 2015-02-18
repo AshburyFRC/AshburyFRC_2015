@@ -85,13 +85,17 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	public void processJoystickInputExperimental(Joystick stick){
+		final double MAX = 1.0;
+		
 		speed = (1/8)*memX + (7/8)*stick.getAxis(Joystick.AxisType.kY);
 		memX = speed;
 		
 		rotation = (1/8)*memY + (7/8)*stick.getRawAxis(4);
 		memY = rotation;
+		if (rotation > MAX)
+			rotation = MAX;
 		
-		robotDrive21.arcadeDrive(reversed*speed, rotation);
+		robotDrive21.arcadeDrive(reversed*speed, rotation, false);
 	}
 	
 	public double getZAxis(Joystick stick){
