@@ -8,12 +8,8 @@ import org.usfirst.frc4825.FRC_2015.RobotMap;
 import org.usfirst.frc4825.FRC_2015.commands.*;
 
 import com.ni.vision.NIVision;
-import com.ni.vision.NIVision.Image;
-import com.ni.vision.NIVision.ImageType;
-
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.image.HSLImage;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -153,11 +149,13 @@ public class DriveTrain extends Subsystem {
 		double BoundingRectRight;
 		double BoundingRectBottom;
 		
+		@Override
 		public int compareTo(ParticleReport r)
 		{
 			return (int)(r.Area - this.Area);
 		}
 		
+		@Override
 		public int compare(ParticleReport r1, ParticleReport r2)
 		{
 			return (int)(r1.Area - r2.Area);

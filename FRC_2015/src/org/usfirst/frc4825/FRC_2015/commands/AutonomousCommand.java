@@ -11,7 +11,6 @@
 package org.usfirst.frc4825.FRC_2015.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *Ultra Pro Code By Isidor Ehrlich &&& >>> $WAG $LAVA <<<
@@ -42,10 +41,11 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new DriveWithTimer(1.0));
 		//addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 1")));
 		addSequential(new Turn());
+		//addSequential(new TurnAtAngle (-90));
 		addSequential(new DriveWithTimer(2.0));
 		//addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 2")));
 		addSequential(new Turn());
-		//
+		//addSequential(new TurnAtAngle (-90));
 		addSequential(new DriveToSwitch());
 		//addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 1")));
 		addSequential(new LowerToteToFirstLvl());
