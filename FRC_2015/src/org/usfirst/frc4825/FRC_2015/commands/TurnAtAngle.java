@@ -1,6 +1,8 @@
 package org.usfirst.frc4825.FRC_2015.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc4825.FRC_2015.Robot;
 
 /**
@@ -28,7 +30,7 @@ public class TurnAtAngle extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
 	protected void execute() {
-    	Robot.driveTrain.turnWithSpeed(0.5);
+    	Robot.driveTrain.turnWithSpeed(SmartDashboard.getNumber("Autonomus Speed") / 2);
     }
 
     // Make this return true when this Command no longer needs to run execute()

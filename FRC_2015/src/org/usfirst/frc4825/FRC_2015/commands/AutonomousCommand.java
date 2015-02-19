@@ -11,6 +11,7 @@
 package org.usfirst.frc4825.FRC_2015.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *Ultra Pro Code By Isidor Ehrlich &&& >>> $WAG $LAVA <<<
@@ -34,26 +35,26 @@ public class AutonomousCommand extends CommandGroup {
 		// e.g. if Command1 requires chassis, and Command2 requires arm,
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
-
+/*
 		// Commands To Run
 		addSequential(new LowerToteToFirstLvl());
 		addSequential(new RaiseToteToMiddleLvl());
-		addSequential(new DriveWithTimer(1.0));
-		//addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 1")));
-		addSequential(new Turn());
-		//addSequential(new TurnAtAngle (-90));
-		addSequential(new DriveWithTimer(2.0));
-		//addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 2")));
-		addSequential(new Turn());
-		//addSequential(new TurnAtAngle (-90));
-		addSequential(new DriveToSwitch());
-		//addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 1")));
+		//addSequential(new DriveWithTimer(1.0));
+		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 1")));
+		//addSequential(new Turn());
+		addSequential(new TurnAtAngle (-70));
+		//addSequential(new DriveWithTimer(2.0));
+		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 2")));
+		//addSequential(new Turn());
+		addSequential(new TurnAtAngle (-70));
+		//addSequential(new DriveToSwitch());
+		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 1")));
 		addSequential(new LowerToteToFirstLvl());
 		addSequential(new RaiseToteToMiddleLvl());
-		addSequential(new DriveWithTimer(-3.0));
-		//addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 3")));
+		//addSequential(new DriveWithTimer(-3.0));
+		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 3")));
 		addSequential(new LowerToteToFirstLvl());
-		addSequential(new DriveWithTimer(-1.0));
-		//addSequential(new DriveWithTimer(SmartDashboard.putNumber("Time of driving 4")));
+		//addSequential(new DriveWithTimer(-1.0));
+		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 4")));*/
 	}
 }
