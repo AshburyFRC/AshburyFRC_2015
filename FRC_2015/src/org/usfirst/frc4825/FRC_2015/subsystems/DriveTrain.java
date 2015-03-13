@@ -55,7 +55,8 @@ public class DriveTrain extends Subsystem {
 
 	public void processJoystickInput(Joystick stick1) {
 		// arcade drive
-		int signX = (stick1.getRawAxis(4) > 1) ? 1 : -1;
+		System.out.println("Raw Axis (4)=>" + stick1.getRawAxis(4));
+		int signX = (stick1.getRawAxis(4) > 0) ? 1 : -1;
 		double speed = Math.pow(stick1.getAxis(Joystick.AxisType.kY), 3);
 		double rotation = (Math.pow(stick1.getRawAxis(4), 5) * signX);
 		robotDrive21.arcadeDrive(reversed*speed*0.7, rotation*0.8, true);
@@ -76,7 +77,7 @@ public class DriveTrain extends Subsystem {
 		if (rotation < MIN)
 			rotation = MIN;
 		
-		robotDrive21.arcadeDrive(reversed*speed, rotation, false);
+		robotDrive21.arcadeDrive(reversed*speed *0.5, rotation * 0.6, false);
 		
 		System.out.println(stick1.getAxis(Joystick.AxisType.kY));
 		System.out.println(speed);

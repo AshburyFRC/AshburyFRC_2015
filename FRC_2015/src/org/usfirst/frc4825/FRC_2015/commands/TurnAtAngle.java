@@ -11,6 +11,7 @@ import org.usfirst.frc4825.FRC_2015.Robot;
 public class TurnAtAngle extends Command {
 	
 	private double angle;
+	private int sign = 1;
 
     public TurnAtAngle(double angle) {
         // Use requires() here to declare subsystem dependencies
@@ -18,6 +19,8 @@ public class TurnAtAngle extends Command {
     	requires(Robot.driveTrain);
     	
     	this.angle = angle;
+    	if (angle < 0.0)
+    		sign = -1;
     }
 
     // Called just before this Command runs the first time
@@ -30,13 +33,14 @@ public class TurnAtAngle extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
 	protected void execute() {
-    	Robot.driveTrain.turnWithSpeed(SmartDashboard.getNumber("Autonomus Speed") / 2);
+    	Robot.driveTrain.turnWithSpeed(-sign * SmartDashboard.getNumber("Autonomus Speed")*1.5); /// 2);
+    	System.out.println("Gyro Angle during turnAtAngle =>" + Robot.driveTrain.getGyroAngle());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
 	protected boolean isFinished() {
-        return ((Robot.driveTrain.getGyroAngle() - angle) < 1);
+        return (( Math.abs(Robot.driveTrain.getGyroAngle() - angle) ) < 0.5);
     }
 
     // Called once after isFinished returns true
