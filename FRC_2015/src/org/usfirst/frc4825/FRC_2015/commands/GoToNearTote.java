@@ -25,9 +25,9 @@ public class GoToNearTote extends CommandGroup {
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
 
-		addSequential(new DriveWithTimer(-0.5));
-		addSequential(new TurnAtAngle(-90));
+		addSequential(new DriveWithTimer(-1.0));
+		addSequential(new TurnAtAngle(-85));
 		addSequential(new DriveWithTimer(-2.0));
-		addSequential(new TurnAtAngle(90));
+		addSequential(new TurnAtAngle(85));
 	}
 }

@@ -36,18 +36,24 @@ public class AutonomousCommand extends CommandGroup {
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
 
-		if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 1) {
+		//if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 1) {
+			/*
 			addSequential(new LowerToteToFirstLvl());
 			addSequential(new RaiseToteToMiddleLvl());
 			addSequential(new DriveWithTimer(-2.8));
 			addSequential(new LowerToteToFirstLvl());
 			addSequential(new DriveWithTimer(-0.5));
-		} else if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 0) {
-			addSequential(new RaiseBinToLastLvl());
-			addSequential(new DriveWithTimer(2.8));
-			addSequential(new LowerBinToFirstLvl());
-			addSequential(new DriveWithTimer(0.5));
-		}
+			*/
+		//} else if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 0) {
+			addSequential(new RaiseBinMiddleLvl());
+			//addSequential(new RaiseBinToLastLvl());
+			addSequential(new Delay(0.2));
+			addSequential(new DriveWithTimer(3.0));
+			addSequential(new Delay(0.2));
+			addParallel(new LowerBinToFirstLvl()); //GOLDEN NUMBERS 3.0 and 0.6!!!1!11!one
+			//addSequential(new Delay(0.2));
+			addSequential(new DriveWithTimer(0.6));
+		//}
 
 	}
 }

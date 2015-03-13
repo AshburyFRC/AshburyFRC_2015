@@ -81,6 +81,28 @@ public class BinLift extends Subsystem {
 										// position of the arms
 		return lowerSwitch.get();
 	}
+	
+	public void raiseBinAuto(){
+		if (upperSwitch.get() == true) { // Checks if the arms are not at the
+			// top
+			// solOff();
+			motor.set(0.8); // Moves lift up
+		} else { // Arms are at the top
+			// solOn();
+			stopBin(); // Stop arm movement
+		}
+	}
+	
+	public void lowerBinAuto(){
+		if (lowerSwitch.get() == true) { // Checks if the arms are not at the
+			// bottom
+			// solOff();
+			motor.set(-0.3); // Moves lift down
+		} else { // Arms are at the bottom
+			// solOn();
+			stopBin(); // Stop arm movement
+		}
+	}
 
 	/*
 	 * private void solOn(){ if (solenoid.get() == false) solenoid.set(true); }

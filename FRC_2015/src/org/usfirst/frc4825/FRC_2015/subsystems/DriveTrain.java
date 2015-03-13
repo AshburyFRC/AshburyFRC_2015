@@ -86,7 +86,7 @@ public class DriveTrain extends Subsystem {
 		if (rotation < MIN)
 			rotation = MIN;
 
-		robotDrive21.arcadeDrive(reversed * speed * 0.5, rotation * 0.6, false);
+		robotDrive21.arcadeDrive(reversed * speed * 0.5, rotation * 0.5, false);
 
 		System.out.println(stick1.getAxis(Joystick.AxisType.kY));
 		System.out.println(speed);
