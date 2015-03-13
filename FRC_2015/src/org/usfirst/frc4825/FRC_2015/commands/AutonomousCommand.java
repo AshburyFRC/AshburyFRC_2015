@@ -35,43 +35,20 @@ public class AutonomousCommand extends CommandGroup {
 		// e.g. if Command1 requires chassis, and Command2 requires arm,
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
-/*
-		// Commands To Run
-		addSequential(new LowerToteToFirstLvl());
-		addSequential(new RaiseToteToMiddleLvl());
-		//addSequential(new DriveWithTimer(1.0));
-		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 1")));
-		//addSequential(new Turn());
-		addSequential(new TurnAtAngle (-70));
-		//addSequential(new DriveWithTimer(2.0));
-		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 2")));
-		//addSequential(new Turn());
-		addSequential(new TurnAtAngle (-70));
-		//addSequential(new DriveToSwitch());
-		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 1")));
-		addSequential(new LowerToteToFirstLvl());
-		addSequential(new RaiseToteToMiddleLvl());
-		//addSequential(new DriveWithTimer(-3.0));
-		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 3")));
-		addSequential(new LowerToteToFirstLvl());
-		//addSequential(new DriveWithTimer(-1.0));
-		addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 4")));*/
 		
-		/*
-		//addSequential(new RaiseToteToLastLvl());
-		//addSequential(new DriveWithTimer(1.0));
-		addSequential(new LowerToteToFirstLvl());
-		addSequential(new RaiseToteToMiddleLvl());
-		addSequential(new DriveWithTimer(-2.8));
-		//addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 1")));
-		addSequential(new LowerToteToFirstLvl());
-		addSequential(new DriveWithTimer(-0.5));
-		//addSequential(new DriveWithTimer(SmartDashboard.getNumber("Time of driving 2")));*/
+		if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 1){
+			addSequential(new LowerToteToFirstLvl());
+			addSequential(new RaiseToteToMiddleLvl());
+			addSequential(new DriveWithTimer(-2.8));
+			addSequential(new LowerToteToFirstLvl());
+			addSequential(new DriveWithTimer(-0.5));
+		}
+		else if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 0){
+			addSequential(new RaiseBinToLastLvl());
+			addSequential(new DriveWithTimer(2.8));
+			addSequential(new LowerBinToFirstLvl());
+			addSequential(new DriveWithTimer(0.5));
+		}
 		
-		
-		addSequential(new RaiseBinToLastLvl());
-		addSequential(new DriveWithTimer(2.8));
-		addSequential(new LowerBinToFirstLvl());
-		addSequential(new DriveWithTimer(0.5));
 	}
 }

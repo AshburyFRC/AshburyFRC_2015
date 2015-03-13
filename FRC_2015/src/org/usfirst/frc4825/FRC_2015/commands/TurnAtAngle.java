@@ -34,18 +34,18 @@ public class TurnAtAngle extends Command {
     @Override
 	protected void execute() {
     	Robot.driveTrain.turnWithSpeed(-sign * SmartDashboard.getNumber("Autonomus Speed")*1.5); /// 2);
-    	System.out.println("Gyro Angle during turnAtAngle =>" + Robot.driveTrain.getGyroAngle());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
 	protected boolean isFinished() {
-        return (( Math.abs(Robot.driveTrain.getGyroAngle() - angle) ) < 0.5);
+        return ( ( Math.abs(angle-Robot.driveTrain.getGyroAngle()) ) < 0.1);
     }
 
     // Called once after isFinished returns true
     @Override
 	protected void end() {
+    	System.out.println("end TurnAtAngle");
     	Robot.driveTrain.stop();
     }
 
