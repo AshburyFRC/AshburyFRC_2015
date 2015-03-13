@@ -48,11 +48,14 @@ public class AutonomousCommand extends CommandGroup {
 			addSequential(new RaiseBinMiddleLvl());
 			//addSequential(new RaiseBinToLastLvl());
 			addSequential(new Delay(0.2));
-			addSequential(new DriveWithTimer(3.0));
+			addSequential(new DriveWithTimer(2.9));
 			addSequential(new Delay(0.2));
 			addParallel(new LowerBinToFirstLvl()); //GOLDEN NUMBERS 3.0 and 0.6!!!1!11!one
 			//addSequential(new Delay(0.2));
-			addSequential(new DriveWithTimer(0.6));
+			addSequential(new DriveWithTimer(0.7));
+			
+			addSequential(new Delay(0.2));
+			addSequential(new TurnAtAngle(-85));
 		//}
 
 	}
