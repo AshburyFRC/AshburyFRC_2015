@@ -10,8 +10,9 @@
 
 package org.usfirst.frc4825.FRC_2015.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4825.FRC_2015.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * January 31st 2015 Jonathan Chow
@@ -30,13 +31,14 @@ public class LowerTote extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		System.out.println("Initialize LowerTote"); //Print for debug
+		System.out.println("Initialize LowerTote"); // Print for debug
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.toteLift.lowerTote(); //Call lowerTote() in toteLift subsystem to lower the tote
+		Robot.toteLift.lowerTote(); // Call lowerTote() in toteLift subsystem to
+									// lower the tote
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -48,14 +50,15 @@ public class LowerTote extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
-		System.out.println("End LowerTote"); //Print for debug
-		Robot.toteLift.stopTote(); //Call stopTote() in toteLift subsystem to stop the tote movement
+		System.out.println("End LowerTote"); // Print for debug
+		Robot.toteLift.stopTote(); // Call stopTote() in toteLift subsystem to
+									// stop the tote movement
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
-		end(); //Stop command
+		end(); // Stop command
 	}
 }

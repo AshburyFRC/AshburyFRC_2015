@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *Ultra Pro Code By Isidor Ehrlich &&& >>> $WAG $LAVA <<<
+ * Ultra Pro Code By Isidor Ehrlich &&& >>> $WAG $LAVA <<<
  */
 public class AutonomousCommand extends CommandGroup {
 
@@ -35,20 +35,19 @@ public class AutonomousCommand extends CommandGroup {
 		// e.g. if Command1 requires chassis, and Command2 requires arm,
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
-		
-		if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 1){
+
+		if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 1) {
 			addSequential(new LowerToteToFirstLvl());
 			addSequential(new RaiseToteToMiddleLvl());
 			addSequential(new DriveWithTimer(-2.8));
 			addSequential(new LowerToteToFirstLvl());
 			addSequential(new DriveWithTimer(-0.5));
-		}
-		else if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 0){
+		} else if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 0) {
 			addSequential(new RaiseBinToLastLvl());
 			addSequential(new DriveWithTimer(2.8));
 			addSequential(new LowerBinToFirstLvl());
 			addSequential(new DriveWithTimer(0.5));
 		}
-		
+
 	}
 }

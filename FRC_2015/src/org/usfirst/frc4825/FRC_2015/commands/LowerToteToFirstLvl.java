@@ -1,7 +1,8 @@
 package org.usfirst.frc4825.FRC_2015.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4825.FRC_2015.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
