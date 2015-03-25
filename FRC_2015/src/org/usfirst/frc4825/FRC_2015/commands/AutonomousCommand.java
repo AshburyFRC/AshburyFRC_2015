@@ -11,7 +11,6 @@
 package org.usfirst.frc4825.FRC_2015.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Ultra Pro Code By Isidor Ehrlich &&& >>> $WAG $LAVA <<<
