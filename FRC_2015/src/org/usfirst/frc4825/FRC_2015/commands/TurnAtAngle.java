@@ -34,7 +34,7 @@ public class TurnAtAngle extends Command {
 	@Override
 	protected void execute() {
 		Robot.driveTrain.turnWithSpeed(-sign
-				* SmartDashboard.getNumber("Autonomus Speed") * 2);
+				* SmartDashboard.getNumber("Autonomus Speed") * 2.3);
 		System.out.println("CALC: " + Robot.driveTrain.getGyroAngle() + " - " + angle + " = " + ( Math.abs(Robot.driveTrain.getGyroAngle()) - Math.abs(angle) ));
 	}
 
