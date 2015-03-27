@@ -106,7 +106,7 @@ public class RobotMap {
 		 * binSolenoid = new Solenoid(0, 1); LiveWindow.addActuator("Bin Lift",
 		 * "Solenoid", binSolenoid);
 		 */
-		toteLiftSuckMotor = new Victor(8);
+		toteLiftSuckMotor = new Victor(4);
 		LiveWindow.addActuator("Tote Lift", "Motor", (Victor) toteLiftSuckMotor);
 
 		/*
