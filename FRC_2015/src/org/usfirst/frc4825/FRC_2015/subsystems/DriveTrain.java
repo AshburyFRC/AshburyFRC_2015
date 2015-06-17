@@ -35,7 +35,11 @@ public class DriveTrain extends Subsystem {
 	private int reversed = 1;
 
 	private double memY = 0;
+	private double errY = 0;
+	private double errYd = 0;
 	private double memX = 0;
+	private double totErrY = 0;
+	private double time = 0;
 
 	@Override
 	public void initDefaultCommand() {
@@ -92,6 +96,56 @@ public class DriveTrain extends Subsystem {
 		System.out.println(speed);
 		System.out.println(stick1.getRawAxis(4));
 		System.out.println(rotation);
+	}
+	
+	public void processJoystickInputPI(Joystick stick1){
+		double yStick = stick1.getAxis(Joystick.AxisType.kY);
+		double xStick = -stick1.getRawAxis(4);
+		
+		double errY = yStick - RobotMap.driveTrainLeftSpeedController.get();
+		totErrY += errY;
+		
+		double speed, rotation;
+		
+		speed = 0.8 * errY + 0.2 * totErrY;
+		memY = speed;
+		
+		rotation = xStick;
+		memX = rotation;
+		
+		robotDrive21.arcadeDrive( (stick1.getRawAxis(2)*0.5 + 1)*(reversed * speed * 0.2), rotation * 0.5, false);
+	}
+	
+	public void processJoystickInputPD(Joystick stick1){
+		time++;
+		double speed, rotation;
+		double yStick = stick1.getAxis(Joystick.AxisType.kY);
+		double xStick = -stick1.getRawAxis(4);
+		errYd = errY;
+		errY = yStick - RobotMap.driveTrainLeftSpeedController.get();
+		
+		speed = 0.6 * errY + 0.4 * ( (errY - errYd)/time );
+		memY = speed;
+		
+		rotation = xStick;
+		memX = rotation;
+		
+		robotDrive21.arcadeDrive( (stick1.getRawAxis(2)*0.5 + 1)*(reversed * speed), rotation * 0.5, false);
+	}
+	
+	public void processJoystickError(Joystick stick1){
+		time++;
+		double speed, rotation;
+		double error;
+		
+		speed = stick1.getAxis(Joystick.AxisType.kY);
+		rotation = -stick1.getRawAxis(4);
+		
+		error = speed - RobotMap.driveTrainLeftSpeedController.get();
+		
+		System.out.println(time + "; " + error);
+		
+		robotDrive21.arcadeDrive(speed, rotation);
 	}
 
 	public boolean atSwitch() {

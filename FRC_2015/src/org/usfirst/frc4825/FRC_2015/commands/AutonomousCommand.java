@@ -43,6 +43,8 @@ public class AutonomousCommand extends CommandGroup {
 			addSequential(new LowerToteToFirstLvl());
 			addSequential(new DriveWithTimer(-0.5));
 			*/
+		
+		/*
 		//} else if (SmartDashboard.getNumber("Autonomus for Bin0; Tote1") == 0) {
 			addSequential(new RaiseBinMiddleLvl());
 			//addSequential(new RaiseBinToLastLvl());
@@ -55,7 +57,27 @@ public class AutonomousCommand extends CommandGroup {
 			
 			addSequential(new Delay(0.2));
 			addSequential(new TurnAtAngle(-80));
-		//}
+		//} */ //<--- competition code
 
+		
+		addSequential(new RaiseBinToLastLvl());
+		
+		addSequential(new DriveWithTimer(0.8));
+		addSequential(new LowerToteToFirstLvl());
+		addSequential(new RaiseToteToMiddleLvl());
+		
+		addSequential(new DriveWithTimer(0.8));
+		addSequential(new LowerToteToFirstLvl());
+		addSequential(new RaiseToteToMiddleLvl());
+		/*
+		addSequential(new DriveWithTimer(-1.0));
+		addSequential(new TurnAtAngle(-170));
+		
+		addSequential(new DriveWithTimer(-1.0));
+		addSequential(new LowerBinToFirstLvl());
+		
+		addSequential(new TurnAtAngle(190));
+		
+		*/
 	}
 }
