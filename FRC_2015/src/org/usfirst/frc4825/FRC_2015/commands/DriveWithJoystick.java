@@ -29,11 +29,11 @@ public class DriveWithJoystick extends Command {
 		//Robot.driveTrain.processJoystickInputPI(Robot.oi
 				//.getJoystick());
 		
-		Robot.driveTrain.processJoystickInputPD(Robot.oi
-			.getJoystick());
-		
-		//Robot.driveTrain.processJoystickInputPID(Robot.oi
+		//Robot.driveTrain.processJoystickInputPD(Robot.oi
 			//.getJoystick());
+		
+		Robot.driveTrain.processJoystickInputPID(Robot.oi
+			.getJoystick());
 		
 		//Robot.driveTrain.processJoystickError(Robot.oi.getJoystick());
 	}
