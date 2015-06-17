@@ -23,8 +23,8 @@ public class DriveWithJoystick extends Command {
 	@Override
 	protected void execute() {
 		// Robot.driveTrain.processJoystickInput(Robot.oi.getJoystick());
-		//Robot.driveTrain.processJoystickInputExperimental(Robot.oi
-				//.getJoystick());
+		Robot.driveTrain.processJoystickInputExperimental(Robot.oi
+				.getJoystick());
 		
 		//Robot.driveTrain.processJoystickInputPI(Robot.oi
 				//.getJoystick());
@@ -32,8 +32,8 @@ public class DriveWithJoystick extends Command {
 		//Robot.driveTrain.processJoystickInputPD(Robot.oi
 			//.getJoystick());
 		
-		Robot.driveTrain.processJoystickInputPID(Robot.oi
-			.getJoystick());
+		//Robot.driveTrain.processJoystickInputPID(Robot.oi
+			//.getJoystick());
 		
 		//Robot.driveTrain.processJoystickError(Robot.oi.getJoystick());
 	}

@@ -133,12 +133,11 @@ public class DriveTrain extends Subsystem {
 		double yStick = stick1.getAxis(Joystick.AxisType.kY);
 		double xStick = -stick1.getRawAxis(4);
 		pErr = err;
-		err = yStick - RobotMap.driveTrainLeftSpeedController.get();
+		err = 1 - RobotMap.driveTrainLeftSpeedController.get();
 		
-		speed = 0.6 * err + 0.4 * ( (err - pErr) / time );
+		speed = 0.6 * err + 0.4 * ( (err - pErr) / 1 );
 		System.out.println("PD: " + time + "; " + RobotMap.driveTrainLeftSpeedController.get() + " >" + yStick);
 		rotation = xStick;
-		
 		robotDrive21.arcadeDrive(speed, rotation, false);
 	}
 	
@@ -152,7 +151,7 @@ public class DriveTrain extends Subsystem {
 		err = yStick - RobotMap.driveTrainLeftSpeedController.get();
 		totErr += err;
 		
-		speed = 5 * err + 3 * totErr + 3 * ( (err - pErr) / time);
+		speed = 0.5 * err + 0.25 * totErr + 0.25 * ( (err - pErr) / time);
 		System.out.println(time + "; " + RobotMap.driveTrainLeftSpeedController.get() + " > " + yStick);
 		rotation = xStick;
 		
@@ -168,8 +167,8 @@ public class DriveTrain extends Subsystem {
 		rotation = -stick1.getRawAxis(4);
 		
 		error = speed - RobotMap.driveTrainLeftSpeedController.get();
-		
-		System.out.println(time + "; " + error);
+		System.out.println(speed);
+		System.out.println(time + "; " + RobotMap.driveTrainLeftSpeedController.get());
 		
 		robotDrive21.arcadeDrive(speed, rotation);
 	}
