@@ -29,7 +29,13 @@ public class DriveWithJoystick extends Command {
 		//Robot.driveTrain.processJoystickInputPI(Robot.oi
 				//.getJoystick());
 		
-		Robot.driveTrain.processJoystickError(Robot.oi.getJoystick());
+		Robot.driveTrain.processJoystickInputPD(Robot.oi
+			.getJoystick());
+		
+		//Robot.driveTrain.processJoystickInputPID(Robot.oi
+			//.getJoystick());
+		
+		//Robot.driveTrain.processJoystickError(Robot.oi.getJoystick());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -43,6 +49,7 @@ public class DriveWithJoystick extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
+		Robot.driveTrain.reset();
 		Robot.driveTrain.stop();
 		System.out.println("End DriveWithJoysticks");
 	}
