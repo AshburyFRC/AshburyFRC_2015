@@ -39,7 +39,7 @@ public class DriveTrain extends Subsystem {
 	
 	private double err = 0;
 	private double pErr = 0;
-	private double totErr = 0;
+	private double res = 0;
 	
 	private double time = 0;
 
@@ -49,7 +49,7 @@ public class DriveTrain extends Subsystem {
 		
 		err = 0;
 		pErr = 0;
-		totErr = 0;
+		res = 0;
 		time = 0;
 	}
 	
@@ -110,65 +110,65 @@ public class DriveTrain extends Subsystem {
 		System.out.println(rotation);
 	}
 	
-	public void processJoystickInputPI(Joystick stick1){
+	public void processJoysticInputP(Joystick stick1){
 		time++;
-		double yStick = stick1.getAxis(Joystick.AxisType.kY);
-		double xStick = -stick1.getRawAxis(4);
+		
+		double K = 0.5;
+		
+		double speed, yStick = stick1.getAxis(Joystick.AxisType.kY);
+		double rotation = -stick1.getRawAxis(4);
 		
 		err = yStick - RobotMap.driveTrainLeftSpeedController.get();
-		totErr += err;
 		
-		double speed, rotation;
-		
-		speed = 0.6 * err + 0.4 * totErr;
+		speed = K*err;
 		System.out.println("PI: " + time + "; " + RobotMap.driveTrainLeftSpeedController.get() + " >" + yStick);
-		rotation = xStick;
-		
 		robotDrive21.arcadeDrive(speed, rotation, false);
 	}
 	
-	public void processJoystickInputPD(Joystick stick1){
+	public void processJoystickInputPI(Joystick stick1){
 		time++;
-		double speed, rotation;
-		double yStick = stick1.getAxis(Joystick.AxisType.kY);
-		double xStick = -stick1.getRawAxis(4);
-		pErr = err;
-		err = 1 - RobotMap.driveTrainLeftSpeedController.get();
 		
-		speed = 0.6 * err + 0.4 * ( (err - pErr) / 1 );
-		System.out.println("PD: " + time + "; " + RobotMap.driveTrainLeftSpeedController.get() + " >" + yStick);
-		rotation = xStick;
+		double K = 0.5, tau_i = 0.3;
+		
+		double speed, yStick = stick1.getAxis(Joystick.AxisType.kY);
+		double rotation = -stick1.getRawAxis(4);
+		
+		err = yStick - RobotMap.driveTrainLeftSpeedController.get();
+		res += K/tau_i * err;
+		
+		speed = K*err + res;
+		System.out.println("PI: " + time + "; " + RobotMap.driveTrainLeftSpeedController.get() + " >" + yStick);
+		
 		robotDrive21.arcadeDrive(speed, rotation, false);
 	}
 	
 	public void processJoystickInputPID(Joystick stick1){
 		time++;
-		double speed, rotation;
-		double yStick = stick1.getAxis(Joystick.AxisType.kY);
-		double xStick = -stick1.getRawAxis(4);
 		
-		pErr = err;
+		double K = 0.5, tau_i = 0.3, tau_d = 0.3;
+		
+		double speed, yStick = stick1.getAxis(Joystick.AxisType.kY);
+		double rotation = -stick1.getRawAxis(4);
+		
 		err = yStick - RobotMap.driveTrainLeftSpeedController.get();
-		totErr += err;
+		res += K/tau_i * err;
 		
-		speed = 0.5 * err + 0.25 * totErr + 0.25 * ( (err - pErr) / time);
-		System.out.println(time + "; " + RobotMap.driveTrainLeftSpeedController.get() + " > " + yStick);
-		rotation = xStick;
+		speed = K*err + res + ((pErr - err)*K/tau_d);
+		pErr = err;
 		
+		System.out.println(time + "; " + RobotMap.driveTrainLeftSpeedController.get() + " >" + yStick);
 		robotDrive21.arcadeDrive(speed, rotation, false);
 	}
 	
 	public void processJoystickError(Joystick stick1){
 		time++;
-		double speed, rotation;
-		double error;
 		
-		speed = stick1.getAxis(Joystick.AxisType.kY);
-		rotation = -stick1.getRawAxis(4);
+		double speed = stick1.getAxis(Joystick.AxisType.kY);
+		double rotation = -stick1.getRawAxis(4);
 		
-		error = speed - RobotMap.driveTrainLeftSpeedController.get();
+		err = speed - RobotMap.driveTrainLeftSpeedController.get();
 		System.out.println(speed);
-		System.out.println(time + "; " + RobotMap.driveTrainLeftSpeedController.get());
+		System.out.println(time + "; " + err);
 		
 		robotDrive21.arcadeDrive(speed, rotation);
 	}
