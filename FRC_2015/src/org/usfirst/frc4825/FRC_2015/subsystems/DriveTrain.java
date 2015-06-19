@@ -110,10 +110,10 @@ public class DriveTrain extends Subsystem {
 		System.out.println(rotation);
 	}
 	
-	public void processJoysticInputP(Joystick stick1){
+	public void processJoystickInputP(Joystick stick1){
 		time++;
 		
-		double K = 0.5;
+		double K = 0.9;
 		
 		double speed, yStick = stick1.getAxis(Joystick.AxisType.kY);
 		double rotation = -stick1.getRawAxis(4);
