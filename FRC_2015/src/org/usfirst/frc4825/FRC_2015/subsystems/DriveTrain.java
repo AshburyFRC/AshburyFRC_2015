@@ -121,6 +121,7 @@ public class DriveTrain extends Subsystem {
 		err = yStick - RobotMap.driveTrainLeftSpeedController.get();
 		
 		speed = K*err;
+		
 		System.out.println("PI: " + time + "; " + RobotMap.driveTrainLeftSpeedController.get() + " >" + yStick);
 		robotDrive21.arcadeDrive(speed, rotation, false);
 	}
@@ -128,7 +129,7 @@ public class DriveTrain extends Subsystem {
 	public void processJoystickInputPI(Joystick stick1){
 		time++;
 		
-		double K = 0.5, tau_i = 0.3;
+		double K = 0.5, tau_i = 3;
 		
 		double speed, yStick = stick1.getAxis(Joystick.AxisType.kY);
 		double rotation = -stick1.getRawAxis(4);
@@ -145,7 +146,7 @@ public class DriveTrain extends Subsystem {
 	public void processJoystickInputPID(Joystick stick1){
 		time++;
 		
-		double K = 0.5, tau_i = 0.3, tau_d = 0.3;
+		double K = 0.5, tau_i = 3, tau_d = 3;
 		
 		double speed, yStick = stick1.getAxis(Joystick.AxisType.kY);
 		double rotation = -stick1.getRawAxis(4);
