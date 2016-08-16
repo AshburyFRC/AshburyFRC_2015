@@ -1,15 +1,9 @@
 AshburyFRC2015
 ==============
 
-Code for the 2015 Ashbury FRC robotics team
-
-Hello Everyone,
-
-If you are reading this I have successfully created a README.md file.
+This is the code that was used for the Ashbury FRC Team during the 2015 competition.
 
 ==============
 
 
-by J Chow, I$idor and Slava P.
-
-P.S. and, of course, Keith
+All software has been develloped by Isidor Ehrlich, Jonathan Chow, Viacheslav Petruniak and Kieth Allat
